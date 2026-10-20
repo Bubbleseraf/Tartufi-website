@@ -1,9 +1,6 @@
 import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import heroImage from '../assets/images/hero-tartufi.webp'
-import recipeImage from '../assets/images/tagliolini-tartufo.webp'
-import oilImage from '../assets/images/olio-tartufo.webp'
-import creamImage from '../assets/images/crema-tartufo.webp'
 import truffleBirthImage from '../assets/images/processo-nascita.webp'
 import truffleHuntImage from '../assets/images/processo-ricerca.webp'
 import truffleSelectionImage from '../assets/images/processo-selezione.webp'
@@ -15,6 +12,8 @@ import summerTruffleImage from '../assets/images/varieta-estivo.webp'
 import uncinatoImage from '../assets/images/varieta-uncinato.webp'
 import brumaleImage from '../assets/images/varieta-brumale.webp'
 import Icon from '../components/Icon'
+import RecipeCard from '../components/RecipeCard'
+import { recipes } from '../data/recipes'
 
 function EditorialHero({ eyebrow, title, copy, image = heroImage, className = '' }) {
   return <section className={`editorial-hero ${className}`} style={{ backgroundImage: `linear-gradient(90deg, rgba(16,15,13,.76), rgba(16,15,13,.16)), url(${image})` }}><div className="site-container"><span className="eyebrow eyebrow--light">{eyebrow}</span><h1>{title}</h1><p>{copy}</p></div></section>
@@ -221,16 +220,10 @@ export function StoryPage() {
   </>
 }
 
-const recipes = [
-  { title: 'Tagliolini al tartufo nero', meta: '20 min · Facile', image: recipeImage },
-  { title: 'Uovo morbido e crema di tartufo', meta: '15 min · Facile', image: creamImage },
-  { title: 'Crostini, caprino e miele al tartufo', meta: '10 min · Facile', image: oilImage },
-]
-
 export function RecipesPage() {
   return <>
     <section className="page-hero page-hero--recipes"><div className="site-container"><span className="eyebrow">Ricette e abbinamenti</span><h1>Pochi ingredienti.<br /><em>Il gesto giusto.</em></h1><p>Idee essenziali per portare il tartufo a tavola senza coprirne la voce.</p></div></section>
-    <section className="recipes-grid-section section"><div className="site-container"><div className="recipe-grid">{recipes.map((recipe, index) => <article className="recipe-card" key={recipe.title}><div><img src={recipe.image} alt={recipe.title} loading="lazy" /><span>0{index + 1}</span></div><p>{recipe.meta}</p><h2>{recipe.title}</h2><button className="link-arrow">Leggi la ricetta <Icon name="arrow" size={17} /></button></article>)}</div></div></section>
+    <section className="recipes-grid-section section"><div className="site-container"><div className="recipe-grid">{recipes.map((recipe, index) => <RecipeCard recipe={recipe} index={index} key={recipe.slug} />)}</div></div></section>
     <section className="pairing-banner"><div className="site-container"><div><span className="eyebrow eyebrow--light">Guida rapida</span><h2>Calore sì, cottura no.</h2></div><p>Affetta il tartufo sul piatto appena servito: il calore libera gli aromi, mentre una cottura lunga tende a disperderli.</p></div></section>
   </>
 }

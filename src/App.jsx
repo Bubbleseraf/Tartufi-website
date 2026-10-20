@@ -6,6 +6,7 @@ import CartPage from './pages/CartPage'
 import { ContactPage, NotFoundPage, RecipesPage, StoryPage, TrufflePage } from './pages/EditorialPages'
 import HomePage from './pages/HomePage'
 import ProductPage from './pages/ProductPage'
+import RecipeDetailPage from './pages/RecipeDetailPage'
 import ShopPage from './pages/ShopPage'
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path="/il-tartufo" element={<TrufflePage />} />
             <Route path="/chi-siamo" element={<StoryPage />} />
             <Route path="/ricette" element={<RecipesPage />} />
+            <Route path="/ricette/:slug" element={<RecipeDetailPage />} />
             <Route path="/contatti" element={<ContactPage />} />
             <Route path="/carrello" element={<CartPage />} />
             <Route path="*" element={<NotFoundPage />} />

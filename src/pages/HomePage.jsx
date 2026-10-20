@@ -112,7 +112,7 @@ export default function HomePage() {
             <h2>Tagliolini, burro e tartufo nero.</h2>
             <p>Una ricetta fatta di pochi gesti, dove la temperatura e la semplicità lasciano spazio al vero protagonista.</p>
             <div className="recipe-meta"><span><strong>20</strong> minuti</span><span><strong>4</strong> persone</span><span><strong>5</strong> ingredienti</span></div>
-            <Link className="button button--dark" to="/ricette">Scopri la ricetta <Icon name="arrow" size={18} /></Link>
+            <Link className="button button--dark" to="/ricette/tagliolini-al-tartufo-nero">Scopri la ricetta <Icon name="arrow" size={18} /></Link>
           </div>
         </div>
       </section>
